@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/photos.css' %}">
+</head>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="JekfmCeX"></script>
+    <div class="container">
+
+
+        <nav class="header" id="navbar">
+            <a href="index.html" id="brand">
+                <img src="{% static 'img/en.png' %}" id="header_logo" alt="Our Logo">
+            </a>
+            <div class="menubtn" onclick="openNav()">
+                <div class="burger"></div>
+            </div>
+        </nav>
+        <center>
+            <h1><span id="bigp">P</span>hotos</h1>
+        </center>
+        <div class="main" id="fbphotos">
+            <ul class="cards">
+                {% for card in cards %}
+
+                <li class="cards_item" data-aos="fade-right">
+                    <div class="card">
+                        <div class="card_image"> <img src="{{card.image_url}}">
+                        </div>
+                        <div class="card_content">
+                            <h2 class="card_title">{{card.title}}</h2>
+                            <p class="card_text">{{card.subtitle}}</p>
+                            <div class="fb-share-button" data-href="{{card.share_link}}" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Ftheenvisionersnepal%2Fposts%2F129656288808094&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div><a href="https://twitter.com/EnvisionersThe?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-screen-name="false" data-dnt="true" data-show-count="false">Follow @EnvisionersThe</a>
+                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+{% endblock %}

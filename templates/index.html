@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+
+
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div class="container">
+
+
+        <nav class="header" id="navbar">
+            <a href="index.html" id="brand">
+                <img src="{% static 'img/en.png' %}" id="header_logo" alt="Our Logo">
+            </a>
+            <div class="menubtn" onclick="openNav()">
+                <div class="burger"></div>
+            </div>
+        </nav>
+        <section class="welcome">
+            <h1 data-aos="fade-right" data-aos-easing="linear" data-aos-duration="1000" data-aos-delay="200"><span id="ww"></span><span id="times">WELCOME</span></h1>
+            <a href="#fbphotos" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-delay="500" data-aos-duration="700"> <button type="button" class="pulse">Our Works</button></a>
+        </section>
+    </div>
+    <div class="main" id="fbphotos">
+        <ul class="cards">
+{% for card in cards %}
+                        <li class="cards_item" data-aos="fade-right">
+                <div class="card">
+                    <div class="card_image"> <img src="{{ card.image_url }}">
+                    </div>
+                    <div class="card_content">
+                        <h2 class="card_title">{{ card.title }}</h2>
+                        <p class="card_text">{{ card.subtitle }}</p>
+                        <a href="{% url 'photos' %}"><button class="btn cardbtn">More Thoughts</button></a>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+
+</body>
+
+</html>
+{% endblock %}

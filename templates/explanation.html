@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/expcard.css' %}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+
+        <nav class="header" id="navbar">
+            <a href="index.html" id="brand">
+                <img src="{% static 'img/en.png' %}" id="header_logo" alt="Our Logo">
+            </a>
+            <div class="menubtn" onclick="openNav()">
+                <div class="burger"></div>
+            </div>
+        </nav>
+
+        <div class="main" id="fbphotos">
+            <ul class="cards">
+{% for post in post_list %}
+                <li class="cards_item" data-aos="fade-right">
+                    <div class="card">
+                        <div class="card_image"> <img src="{{ post.img_url }}">
+                        </div>
+                        <div class="card_content">
+                            <h2 class="card_title" style="{font-size:10px;}">{{ post.title }}</h2>
+                            <p class="card_text" style="{font-size:10px;}">
+{{ post.content|slice:":50"| safe }} <b>.......</b>
+                            </p>
+                            <a href="{% url 'post_detail' post.slug  %}"><button class="btn cardbtn">Read More</button></a>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+
+</html>
+{% endblock %}

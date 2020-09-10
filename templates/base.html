@@ -1,0 +1,131 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Notable&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+</head>
+<body>
+<header>
+    <a href="#" class="logo"> <img src="{% static 'img/en.png' %}" id="header_logo" alt="Our Logo">
+        </a>
+        <ul>
+            <li><a href="/" id="active">Home</a></li>
+            <li><a href="{% url 'photos' %}">Photos</a></li>
+            <li><a href="{% url 'videos' %}">Videos</a></li>
+            <li><a href="{%url 'explanations' %}">Explanations</a>
+            </li>
+        </ul>
+    </header>
+<div id="myNav" class="overlay">
+
+        <div class="menubtn" onclick="closeNav()">
+            <div class="burger"></div>
+        </div>
+        <div class="overlay-content">
+            <a href="/" id="active">Home</a>
+            <a href="{% url 'photos' %}">Photos</a>
+            <a href="{% url 'videos' %}">Videos</a>
+            <a href="{% url 'explanations' %}" id="show">Scientific<br><span id="hide"> Explanations</span></a>
+        </div>
+
+    </div>
+{% block nav %}
+{% endblock %}
+{% for about in abouts %}
+    <div class="about">
+        <section>
+            <img src="{% static 'img/en.png' %}" alt="our-logo" id="our-logo"><br>
+            <ul>
+                 <li><a href="/" id="active">Home</a></li>
+            <li><a href="{% url 'photos' %}">Photos</a></li>
+            <li><a href="{% url 'videos' %}">Videos</a></li>
+            <li><a href="{%url 'explanations' %}">Explanations</a>
+            </li>
+            </ul>
+        </section>
+        <section>
+            <h2>Follow Us</h2>
+            <div class="follow-us">
+                <a href="https://www.facebook.com/theenvisionersnepal" target="_blank"> <img src="{% static 'img/fb.ico' %}" height="50px" width="50px" />
+                </a>
+                <a href="https://www.instagram.com/envisionnepal/" target="_blank"> <img src="{% static 'img/insta.ico' %}" />
+                </a>
+                <a href="https://www.twitter.com/EnvisionersThe" target="_blank"> <img src="{% static 'img/twitter.ico' %}" />
+                </a><a href="https://www.youtube.com/channel/UCx1kyWF_pbFTcBNz-yp6rBg" target="_blank"> <img src="{% static 'img/youtube.ico' %}" /></a>
+
+            </div>
+        </section>
+        <section class="about_envisioners">
+            <h1>About Us
+            </h1>
+            <p id="aboutline">
+                {{about.aboutline}}
+            </p>
+        </section>
+        <section>
+            <h1>
+                Quote of the Week
+            </h1>
+            <p id="quotes">
+                {{about.quote}}
+            </p>
+     <h2 class="h2">The Envisioners Nepal &copy;</h2>
+
+        </section>
+    </div>
+{% endfor %}
+    <script type="text/javascript" src="{% static 'index.js' %}"></script>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        AOS.init();
+
+    </script>
+    <script type="text/javascript">
+        window.addEventListener("scroll", function() {
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        })
+
+    </script>
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+
+    </script>
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+
+    </script>
+
+<script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    document.getElementById("navbar").style.top = "0";
+  } else {
+    document.getElementById("navbar").style.top = "-100px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+</script>
+</body>
+</html>

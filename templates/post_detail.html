@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+<html lang="en">
+
+<head>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}">
+
+</head>
+
+    <div class="container">
+
+        <nav class="header"  id="navbar">
+            <a href="index.html" id="brand">
+                <img src="{% static 'img/en.png' %}" id="header_logo" alt="Our Logo">
+            </a>
+            <div class="menubtn" onclick="openNav()">
+                <div class="burger"></div>
+            </div>
+        </nav>
+
+        <br><br>
+    </div>
+{% block content %}
+    <div class="card-container" >
+        <h1 id="timetravel">{% block title %} {{ object.title }} {% endblock title %}</h1>
+        <center>
+            <iframe height="100%" width="100%" src="https://www.youtube.com/embed/{{ object.video_code }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </center>
+        <article class="text_field">
+    {{ object.content | safe }}
+
+        </article>
+{% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+
+    </div>
+{% endblock %}
+{% endblock %}
+</html>

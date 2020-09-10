@@ -1,0 +1,63 @@
+{% block sidebar %}
+{% load static %}
+<style>
+
+.cards_item{
+margin-top:10px;
+}
+    button{
+      background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+    }
+    .card-content a{
+    text-decoration:none;
+    color:white;
+    }
+</style>
+<center>
+            <article class="related_field">
+                <div class="card">
+                    <h2>About</h2>
+                    <img src="{% static 'img/en.png' %}" height="100px" width="100px">
+                    <p>We are here for sharing knowledge about scientific mysteries of universe. Our thoughts are based on self and research through various sources.</p>
+                </div>
+                <div class="card">
+                    <h2>More Post</h2>
+{% for post in posts %}
+                <li class="cards_item" data-aos="fade-left">
+                    <div class="card">
+                        <div class="card_image"> <img src="{{ post.img_url }}">
+                        </div>
+                        <div class="card_content">
+                            <h2 class="card_title">{{ post.title }}</h2>
+                            <p class="card_text">
+{{ post.content|slice:":50"| safe }} <b>.......</b>
+                            </p>
+                            <a href="{% url 'post_detail' post.slug  %}"><button class="btn cardbtn">Read More</button></a>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+                </div>
+                <div class="card">
+                    <h2>Follow Us</h2>
+            <div class="follow-us">
+                <a href="https://www.facebook.com/theenvisionersnepal" target="_blank"> <img src="{% static 'img/fb.ico' %}" />
+                </a>
+                <a href="https://www.instagram.com/envisionnepal/" target="_blank"> <img src="{% static 'img/insta.ico' %}" />
+                </a>
+                <a href="https://www.twitter.com/envisionnepal10" target="_blank"> <img src="{% static 'img/twitter.ico' %}" />
+                </a><a href="https://www.youtube.com/channel/UCx1kyWF_pbFTcBNz-yp6rBg" target="_blank"> <img src="{% static 'img/youtube.ico' %}" /></a>
+
+            </div>                </div>
+            </article>
+        </center>
+{% endblock sidebar %}

@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/video.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/swiper-bundle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/swiper-bundle.min.css' %}">
+</head>
+<body>
+<div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0" nonce="JekfmCeX"></script>
+
+
+<div class="container">
+
+    <nav class="header" id="navbar">
+        <a href="index.html" id="brand">
+            <img src="{% static 'img/en.png' %}" id="header_logo" alt="Our Logo">
+        </a>
+        <div class="menubtn" onclick="openNav()">
+            <div class="burger"></div>
+        </div>
+    </nav>
+    <center>
+        <h1><span id="bigv">V</span>ideos</h1>
+    </center>
+    {% for video in videos %}
+    <h2><span id="latest">Our Latest Video <br> {{video.video_title}}</span></h2>
+    <iframe src="https://www.youtube-nocookie.com/embed/{{video.video_url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="explanation-section">
+    <h1>Some explanations</h1>
+    <div class="swiper-container">
+        <div class="parallax-bg" style="background-image:url({{video.background_image}})" data-swiper-parallax="-23%"></div>
+ {% endfor %}       <div class="swiper-wrapper">
+        {% for explanation in explanations %}
+            <div class="swiper-slide">
+                <div class="title" data-swiper-parallax="-300">{{explanation.video_subtitle}}</div>
+                <div class="text" data-swiper-parallax="-100">
+                    <p>{{explanation.subtitle_explanation}}</p>
+                </div >
+            </div>
+        {% endfor %}
+
+
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-white"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-prev swiper-button-white"></div>
+        <div class="swiper-button-next swiper-button-white"></div>
+    </div>
+</div>
+<div class="main" id="youtube_videos">
+        <ul class="cards">
+            {% for more_video in more_videos %}
+            <li class="cards_item" data-aos="fade-right">
+                <div class="card">
+                   <iframe src="https://www.youtube-nocookie.com/embed/{{more_video.video_code}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="card_content">
+                        <h2 class="card_title">{{more_video.title}}</h2>
+                        <div class="fb-share-button" data-href="{{more_video.url}}" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.facebook.com%2Ftheenvisionersnepal%2Fposts%2F129656288808094&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                        <script src="https://apis.google.com/js/platform.js"></script>
+
+                        <div class="g-ytsubscribe" data-channelid="UCx1kyWF_pbFTcBNz-yp6rBg" data-layout="default" data-count="default"></div>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+<script type="text/javascript" src="index.js"></script>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+        AOS.init();
+
+    </script>
+<script type="text/javascript">
+        window.addEventListener("scroll", function() {
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        })
+
+    </script>
+<script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+
+    </script>
+<script src="{% static 'js/swiper-bundle.js' %}"></script>
+<script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+<script>
+        var swiper = new Swiper('.swiper-container', {
+            speed: 600,
+            parallax: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+    </script></body>
+{% endblock %}
