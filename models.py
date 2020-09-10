@@ -1,12 +1,26 @@
 from django.db import models
+from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
+
+STATUS = (
+    (0, "Draft"),
+    (1, "Publish")
+)
 
 
-class ImageCard(models.Model):
-    image_url = models.CharField(max_length=2048)
-    title = models.CharField(max_length=32)
-    subtitle = models.CharField(max_length=60)
+class Post(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='blog_posts')
+    updated_on = models.DateTimeField(auto_now=True)
+    content = RichTextField(null=True, blank=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    img_url = models.CharField(max_length=2048, null=True, blank=True)
+    video_code = models.CharField(max_length=2048,null=True, blank=True)
 
+    class Meta:
+        ordering = ['-created_on']
 
-class About(models.Model):
-    aboutline = models.CharField(max_length=5000, default='Some text')
-    quote = models.CharField(max_length=5000, default='Some text')
+    def __str__(self):
+        return self.title
