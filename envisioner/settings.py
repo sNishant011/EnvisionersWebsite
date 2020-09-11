@@ -25,7 +25,7 @@ SECRET_KEY = 'sv1!=nkd!=pew7)va&@5u=x6fpk_o&xnmy#z$9-bl#-06^kfq_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['envisioner.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['envisioner.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
