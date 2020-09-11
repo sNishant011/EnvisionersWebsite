@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from Home.models import ImageCard, About
+from .models import ImageCard, About
 
 
 class ImageCardAdmin(admin.ModelAdmin):
