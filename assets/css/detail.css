@@ -910,8 +910,7 @@ article {
 .text_field {
     text-align: left;
     background-size: cover;
-    background-color:white;
-
+background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
     width: 75%;
     float: left;
 }

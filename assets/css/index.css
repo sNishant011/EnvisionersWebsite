@@ -460,11 +460,11 @@ header.sticky ul li a{
 @media(max-width:550px) {
     .container .welcome h1 {
         font-size: 40px;
-        top: 10%;
+        top: 25vh;
     }
 
     .container .welcome a {
-        top: 12%;
+        top: 60vh;
     }
 
 }
@@ -472,11 +472,11 @@ header.sticky ul li a{
 @media(max-width:450px) {
     .container .welcome h1 {
         font-size: 40px;
-        top: 10%;
+        top: 25vh;
     }
 
     .container .welcome a {
-        top: 15%;
+        top: 60vh;
     }
 
 }
