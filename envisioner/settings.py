@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'sv1!=nkd!=pew7)va&@5u=x6fpk_o&xnmy#z$9-bl#-06^kfq_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['envisioner.herokuapp.com', '127.0.0.1']
 
