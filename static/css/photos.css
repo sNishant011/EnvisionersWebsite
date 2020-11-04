@@ -192,9 +192,7 @@ header.sticky ul li a{
 }
 
 .container {
-    background-image: url(../img/background8.jpg);
     background-position: center;
-    background-attachment: fixed;
     background-size: cover;
 }
 
@@ -896,7 +894,7 @@ section #quotes {
 @media (max-width: 800px) {
 
     .about {
-
+        margin-top:-500px;
         position: relative;
         background-image: linear-gradient(120deg, #434343 0%, black 100%);
         background-position: bottom;
