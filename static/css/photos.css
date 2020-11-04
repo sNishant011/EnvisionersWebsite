@@ -32,8 +32,9 @@ html {font-family: 'Maven Pro', sans-serif;
 ::-webkit-scrollbar {
     display: none;
 }
-#follow-button{
-    margin-top:2px;}
+.xl .btn{
+margin-top:3px;
+}
 
 body {
 font-family: 'Maven Pro', sans-serif;
