@@ -501,6 +501,10 @@ img {
     box-shadow: -5px 5px 10px #444cd1;
 
 }
+.btn:focus{
+    outline:none;
+    border: 0;
+}
 
 .cards {
     justify-content:center;
