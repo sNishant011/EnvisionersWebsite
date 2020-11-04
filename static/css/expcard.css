@@ -37,7 +37,7 @@ body {font-family: 'Maven Pro', sans-serif;
 
     overflow-x: hidden;
     color: white;
-    background-image:url(../img/milkyway.jpg);
+    background-color:darkslateblue;
     background-size: cover;
     position: relative;
     min-height: 100vh;
@@ -204,7 +204,6 @@ header.sticky ul li a {
 }
 
 .container {
-background-image: url(../img/background/black6.jpg);
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
